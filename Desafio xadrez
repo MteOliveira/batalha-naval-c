@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+#define TAM 8
+
+// Inicializa o tabuleiro de xadrez
+void inicializarTabuleiro(char tabuleiro[TAM][TAM]) {
+    // Primeira fileira (pretas)
+    tabuleiro[0][0] = 'T'; tabuleiro[0][1] = 'C'; tabuleiro[0][2] = 'B'; tabuleiro[0][3] = 'Q';
+    tabuleiro[0][4] = 'K'; tabuleiro[0][5] = 'B'; tabuleiro[0][6] = 'C'; tabuleiro[0][7] = 'T';
+
+    // Segunda fileira (peões pretos)
+    for (int j = 0; j < TAM; j++) {
+        tabuleiro[1][j] = 'P';
+    }
+
+    // Casas vazias
+    for (int i = 2; i < 6; i++) {
+        for (int j = 0; j < TAM; j++) {
+            tabuleiro[i][j] = '.';
+        }
+    }
+
+    // Sétima fileira (peões brancos)
+    for (int j = 0; j < TAM; j++) {
+        tabuleiro[6][j] = 'P';
+    }
+
+    // Oitava fileira (brancas)
+    tabuleiro[7][0] = 'T'; tabuleiro[7][1] = 'C'; tabuleiro[7][2] = 'B'; tabuleiro[7][3] = 'Q';
+    tabuleiro[7][4] = 'K'; tabuleiro[7][5] = 'B'; tabuleiro[7][6] = 'C'; tabuleiro[7][7] = 'T';
+}
+
+// Imprime o tabuleiro
+void imprimirTabuleiro(char tabuleiro[TAM][TAM]) {
+    printf("\n   ");
+    for (int j = 0; j < TAM; j++) {
+        printf(" %d ", j);
+    }
+    printf("\n");
+
+    for (int i = 0; i < TAM; i++) {
+        printf(" %d ", i);
+        for (int j = 0; j < TAM; j++) {
+            printf(" %c ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    char tabuleiro[TAM][TAM];
+
+    inicializarTabuleiro(tabuleiro);
+    imprimirTabuleiro(tabuleiro);
+
+    return 0;
+}
